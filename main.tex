@@ -1,0 +1,126 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{braket}
+
+\usepackage{bbold} %for id
+
+\usepackage{xcolor}
+\usepackage[margin = 1.5cm]{geometry}
+\setlength{\parskip}{1.5ex}
+\def\baselinestretch{1.4}
+\pagestyle{plain}
+
+
+\usepackage{color}
+\definecolor{darkblue}{rgb}{0,0,0.6}
+\definecolor{purple}{rgb}{0.4,.2,0.7}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\newcommand\AM[1]{{\it \color{darkblue}  [#1 - AM]}}
+
+\usepackage[bookmarks = false, colorlinks = true, linkcolor = darkblue, citecolor = purple]{hyperref}
+
+\renewcommand{\i}{\mathrm{i}}
+\renewcommand{\d}{\mathrm{d}}
+\title{Condensed Matter Diary}
+\author{}
+\date{\today}
+
+
+\renewcommand{\i}{\mathrm{i}}
+
+
+\begin{document}
+
+\maketitle
+\begin{abstract}
+    This is just some notes I took while reading books, papers/watching lectures/doing some calculations. The purpose is just to force myself to TeX out the scrap notes I take while doing research. I also want to make it public so that I remain motivated to keep updating it. Hopefully this selfish endeavour will be useful to the curious eyes that come across it :)\\
+    \textbf{Disclaimer:} Pretty much everything in here is either directly copied or lightly rephrased versions of what I came across and original sources are listed whenever relevant.
+\end{abstract}
+List of topics to start writing about:
+\begin{enumerate}
+    \item LSM, LR theorems
+    \item Haldane phase/conjecture, AFM O(3) NLSM paper.
+    \item AKLT model and properties. Identify the VBS ground state as an MPS state.
+    \item BLBQ models in general (Affleck's paper) understand the phase diagram and in particular the ULS model (or SU(3) point) and Takhtajan, Fateev, Zamolodchikov model. Understand the mapping to WZW theory. Understand the yang-baxter/integrability pov on these models.
+    \item KT transformation and connection to our mapping.
+    \item Dualities (duality webs-witten, senthil)(boson vortex duality, flux threading/attachment)
+    \item Krammers Wannier, Jordan Wigner iron out some details.
+    \item Edge modes (gapping the bulk) (FQH-LL bulk boundary), Kitaev model+Majoranas
+    \item SPT phases(Projective reps/group cohomology pov- xie chen, xiao gang wen...) [see mcgreevy lecs]
+    \item Generalised Symmetries
+    \item Bosonization done right
+    \item QFT in 1+1d - David tong gauge theory notes
+    \item QFT in 2+1 d- David tong+Zohar lecs
+    \item G theorem, boundary RG flow
+    \item Hastings entropy Area law for many body , boundary term for topological order-mutual information
+    \item Anomalies 
+\end{enumerate}
+\section{Lieb-Schultz-Mattis Theorem}
+(Source: Hal Tasaki's lecture)
+
+
+Spin rotation operator (unitary), rotates the spin state by theta about the $\alpha$ axis.
+$\exp{[-i\theta S^{\alpha}]}$.
+
+LSM theorem is a no-go theorem which states that certain quantum many-body systems cannot have a unique ground state with a nonzero energy gap.
+This statement is interesting because it shows that symmetry of a quantum spin system places a strong constraint on its low energy properties.
+
+The original theorem was in the context of the antiferromagnetic heisenberg chain. Consider a 1d lattice of quantum spins described by the Hamiltonian
+$\hat{H} = \sum^{L}_{j=1} \hat{S}_j \cdot \hat{S}_{j+1}$, with ground state energy $E_{\text{gs}}$, and with periodic boundary conditions.
+For half integer spins$\left(S = \frac{1}{2}, \frac{3}{2}, \cdots\right)$, there exists an energy eigenvalue $E$ such that
+\begin{equation}
+    E_{\text{gs}} \leq E \leq E_{\text{gs}} + \frac{C}{l}
+\end{equation}
+for any $l<L$ and some constant $C = 8\pi^2S^2$. This not only tells us that $E$ is an excitation energy that is larger than the ground state energy, but since $l$ can be made as arbitrarily small as you want, this also suggests that the system is gapless!
+
+Outline of the proof
+\begin{enumerate}
+    \item Invoke the Marshall 1955, Lieb, Mattis 1962 theorem, which states that the ground state $\ket{\text{GS}}$ of $\hat{H}$ is unique $\forall L$ even (finite).
+    \item Make a variational estimate, exploiting the above uniqueness. Using the $U(1)$ rotational invariance of $\hat{H}$, we can conclude that the ground state has to be rotationally invariant (As it is unique), that is
+    \begin{equation}
+        \exp{\left[-\i \sum^{L}_{j=1} \theta_j \hat{S}^z_j\right]} \ket{GS} = \ket{\text{GS}}
+    \end{equation}
+    We can then do a gradual \emph{non-uniform} (site-dependent) rotation or a twist given by
+    \begin{equation}
+        \hat{U}_l = \exp{\left[-\i \sum^{l}_{j=1} \theta_j \hat{S}^z_j\right]}, \quad \theta_j = \frac{2\pi}{l} j= \Delta\theta\cdot j ,~ 0\leq j \leq l
+    \end{equation}
+    Note that $\theta_j = 2\pi \text{ for }  j \geq l,~ \theta_j = 0 \text{ for } j\leq 0$, but of course $2\pi = 0$ in this case.
+    We use this twist operator to construct our variational state $\ket{\Psi_l} = \hat{U}_l\ket{\text{GS}}$. For $0 \leq j \leq l$ we have
+    \begin{equation}
+        \braket{\Psi_l| \hat{S}_j \cdot \hat{S}_{j+1}| \Psi_l} = \frac{E_{\text{gs}}}{L} + \mathcal{O}\left(\left(\Delta \theta\right)^2\right)
+    \end{equation}
+    This tells us that within the region, the local energy density given by LHS is equal to the ground state energy density $\frac{E_{\text{gs}}}{L}$ plus some corrections that go as $\Delta \theta ^2 or \frac{1}{l^2}$. Thus, multiplying by l, $\braket{\Psi_l | \hat{H} | \Psi_l} - E_{\text{gs}} \leq \frac{C}{l}$. This bound is valid for any spin $S$.
+    \item Orthogonality of the twisted state.
+    We now need to show that this twisted state is different from the ground state.
+    We can define a Unitary $\hat{R}$ such that
+    \begin{equation}
+       \hat{R}\hat{S}^\alpha_j\hat{R} = \begin{cases}
+           \hat{S}^\alpha_{l-j} & \alpha = x \\
+           -\hat{S}^\alpha_{l-j} & \alpha = y, z
+       \end{cases}     
+    \end{equation}
+    This operator allows us to verify \AM{Not yet understood!!} that $\braket{\text{GS}|\Psi_l}$ is zero for half-integer spins.
+\end{enumerate}
+In the infinite volume limit, it turns out that there is still a unique ground state with gapless excitations, and not multiple ground states instead.
+This theorem also provides no information for the integer spin case. In fact, the integer spin models have a unique ground state with a gap! This is related to the Haldane conjecture/gap.
+\subsection{LSM theorem for models with only discrete symmetries}
+$U(1)$ invariance is essential for the previous proof. Can we do better?
+
+It turns out that for quantum spin chains with half-integer spins and with a short-ranged translation invariant Hamiltonian that is invariant under time-reversal symmetry i.e. $\hat{S}^{\alpha}_j \to  -\hat{S}^{\alpha}_j,~ \alpha = x, y, z$ it can never be the case that the infinite volume ground state is unique and accompanied by a non-zero gap.
+
+The proof by Y.Ogata, Y.Tachikawa and H.Tasaki relies on using the Ogata index for edge states, developed for the study of SPT phases to obtain a necessary condition for the existence of a unique gapped ground state.
+\section{Heisenberg model}
+Here is some stuff to read about this (from Fradkin chapter 5)
+
+\begin{enumerate}
+    \item Bethe ansatz solution for the ground and excited states.
+    \item Mapping to the sine-gordon theory.
+    \item non-abelian bosonization
+    \item Mapping to the sigma model
+\end{enumerate}
+The mappings provide us with non-perturbative probes of the ground and excited states. Read the refs (witten, polyakov and wiegmann, affleck)
+\end{document}
