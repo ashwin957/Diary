@@ -125,8 +125,44 @@ Here is some stuff to read about this (from Fradkin chapter 5)
     \item Mapping to the sigma model
 \end{enumerate}
 The mappings provide us with non-perturbative probes of the ground and excited states. Read the refs (witten, polyakov and wiegmann, affleck)
-\section{How does the WZW show up in spin S chains?}
-Sources: \cite{Affleck:1987ch}
+\section{BLBQ models}
+\begin{equation}
+    H_{\text{BLBQ}} \left(\theta\right) = \sum_j \cos{\theta} \left(\vec{S}_j\cdot \vec{S}_{j+1}\right) + \sin{\theta} \left(\vec{S}_j\cdot \vec{S}_{j+1}\right)^2
+\end{equation}
+\subsection{AKLT point}
+(Source: Hal Tasaki's Textbook)
+
+AKLT (Affleck, Kennedy, Lieb, Tasaki) is a special point in the class of Bilinear Biquadratic (BLBQ) models and shows up at the $\theta = \arctan{\frac{1}{3}}$ point. At this point, the model has a few properties.
+\begin{enumerate}
+    \item We only have SO(3) or spin rotation symmetry. 
+    \item The ground state is the Valence Bond Solid state. One can derive this by first re-writing the BLBQ Hamiltonian at the AKLT point in terms of the spin 2 projection operator. Depending on the type of boundary conditions imposed, we can have gapless edge modes. For open boundary conditions, the ground state will have 4 gapless edge modes and with periodic boundary conditions there are none. The VBS state can also be written as a Matrix product state \AM{write about this please}
+    \item The correlators (spin correlation functions) decay exponentially, indicating a massive excitation. This mass gap or energy gap is in line with Haldane's conjecture, which states that we should see a gapped ground state for integer spin nearest neighbour spin models in 1+1 D.
+    \item $\mathbb{Z}_2 \times \mathbb{Z}_2$ is the center and the gapped/SPT properties come from it.
+    \item  It is integrable. (Check Bethe-Ansatz/Yang-Baxter) \AM{What does this give you?}
+\end{enumerate}
+\subsection{ULS point}
+To study the (global?) symmetry of these spin chains, it can be useful to convert to the Abrikosov fermion representation. Since we are working with the spin -1 model, we use 3 fermion channels at each site with a local fermion number constraint $\sum^{3}_{\mu = 1} c^{\dagger}_{j, \mu} c_{j, \mu} = 1.$ 
+For a generic coupling coupling $\gamma$ the model looks like:
+\begin{equation}
+    H_{\text{BLBQ}}(\gamma) = \sum_{j} c^{\dagger}_{j, \alpha} c_{j, \beta} ~c^{\dagger}_{j+1, \beta}c_{j+1, \alpha} + (\gamma -1)  c^{\dagger}_{j, \alpha} c_{j, \beta} c^{\dagger}_{j+1, \alpha} c_{j, \beta},
+\end{equation}
+where, the first term describes a hopping between channels at adjacent sites and the second term describes a ``single-bond" pairing between adjacent sites.
+ At $\gamma = \frac{4}{3}$ we are at the AKLT point, and at $\gamma = 1$ we are at the Umini Lai Sutherland (ULS) point. Notice immediately that under a transformation of $c_{j, \mu} \to Uc_{j, \mu}$ we remain invariant at the ULS point. This tells us that the ULS point has global SU$(3)$ symmetry.
+\subsection{Babujian-Takhtajan point}
+\subsection{How does the WZW show up in spin S chains?}
+Sources: \cite{Affleck:1987ch, itoi1997extended}.
+
+For the case of the BLBQ model, we can show that the critical theory (CFT) at the ULS point is the  SU(3) level 1 WZW model. We can obtain this by perfroming a Hubbard stratanovich transformation to get the euclidean action, and then write down the mean field description to get the IR theory. \AM{Complete this please!} As expected, the CFT central charge adds up correctly (i.e matches the central charge from Yang-Baxter\AM{how to do this?}) after we construct the theory from the lattice model.
+
+The IR gauge-fixed action looks like
+\begin{equation}
+    S = \int \frac{\d^2 z}{2\pi} \left(\mathcal{L}_{\text{matter}} + \mathcal{L}_{\text{gauge}} + \mathcal{L}_{\text{ghost}} \right)
+\end{equation}
+where the lagrangians are given by
+\begin{equation}
+    \mathcal{L}_{\text{matter}} = 2 \bar{\psi}^{\dagger}_{L, \alpha} \bar{\partial} \psi_{L, \alpha} + 2\psi^{\dagger}_{R, \alpha} \partial \psi_{R, \alpha} ,\quad 
+    \mathcal{L}_{\text{gauge}} = -\partial \phi \bar{\partial} \phi,\quad  \mathcal{L}_{\text{ghost}} = 2 \bar{\eta} \partial \bar{\epsilon} + 2 \eta \bar{\partial} \epsilon
+\end{equation}
 \bibliographystyle{apsrev4-1long}
 \bibliography{bibliography}
 
