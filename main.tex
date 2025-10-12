@@ -63,6 +63,9 @@ List of topics to start writing about:
     \item Anomalies
     \item Disordered systems, localization stuff. Check to see if any of the old notes are still around for an extensive topics list. Else see reading list email/message.
 \end{enumerate}
+\section{Coherent states, segal bargmann transform, heat kernel $\leftrightarrow$ oscillator propagator}
+Some stuff to look at: \cite{PhysRevD.29.1107}
+
 \section{Lieb-Schultz-Mattis Theorem}
 (Source: Hal Tasaki's lecture)
 
@@ -126,6 +129,7 @@ Here is some stuff to read about this (from Fradkin chapter 5)
     \item non-abelian bosonization
     \item Mapping to the sigma model
 \end{enumerate}
+Continuum description for large S by Haldane: \cite{PhysRevLett.50.1153}.
 The mappings provide us with non-perturbative probes of the ground and excited states. Read the refs (witten, polyakov and wiegmann, affleck)
 \section{BLBQ models}
 \begin{equation}
@@ -173,19 +177,57 @@ where the lagrangians are given by
 \end{equation}
 \section{Edge modes and Kitaev chain POV}
 There is a direct mapping from the Kitaev chain to the spin 1 models. It allows us to see all the subtleties encountered with respect to edge modes/gapped states in the spin 1 case through a simple ``correspondence" to the majoranas on the kitaev chain. Here is some calculations to work out that may give some insight.\AM{Vaguely remember this discussion, make this precise}
+
+Check this out \cite{verresen2017one}
 \begin{enumerate}
     \item Strong pairing to weak pairing transition for spinless vs spinful fermions.
     \item (Related) See the $\frac{t}{U}$ map of Hubabrd model to Heisenberg chain, and see what shows up in the leading order of Pert theory.
 \end{enumerate}
 \section{Bosonization}
-Here is a list of refs
+\AM{Move refs to study doc}
+% Here is a list of refs
+% \begin{enumerate}
+%     \item David Tong gauge theory notes
+%     \item Senechal review
+%     \item Jan von delft review
+%     \item Shankar
+%     \item Fradkin
+%     \item Giamarchi
+%     \item E.Miranda
+%     \item Nersesyan ICTP
+%     \item Eggert 1d quantum wires
+%     \item luther peschel paper
+%     \item kane lectures on bosonization
+%     \item fermi liquids and luttinger liquids -hansson and the other set
+%     \item Haldane luttinger liquid theory paper
+% \end{enumerate}
+Here is a list of topics
 \begin{enumerate}
-    \item David Tong gauge theory notes
-    \item Senechal review
-    \item Jan von delft review
-    \item Shankar
+    \item Why does bosonization work? When does it work? What is the role of linearization/1d?
+    \item point split vs normal ordering to regulate divergences
+    \item Klein factors, why is it important when dealing with multiple fermionic species?
+    \item How is continuum limit taken?
+    \item Commutators, Correlators of all the fields involved
 \end{enumerate}
-\AM{Want to see correlation function calculations eventually}
+
+\subsection{Abelian bosonization, constructive approach}
+Goal: Given a \textbf{1D} lattice model of fermions, want to represent the fermion fields $\psi_{\mu}(x)$ at the continuum in terms of bosonic fields $\phi_\mu$ through a relation of the form: $\psi_{\mu} \sim F_{\mu} e^{-\i \phi_{\mu}}$ where $\mu$ is the fermion species index. $F_{\mu}$ is the Klein factor, which \emph{lowers} the number of $\mu$ fermions by one. This relation is an \emph{operator identity} in Fock space.
+This is the general philosophy of bosonization, however in the constructive approach, we want to build the bosonic field in the continuum from ``scratch", just using the ingredients from our model on a lattice. (As opposed to the field theory approach, where the existence of the bosonic fields is taken for granted)
+
+Important developments in the constructive side where through the works of Mattis and Lieb, Luther and Peschel, Emery, Haldane.
+
+There are many ways to see why bosonization works. Here is one to start: It turns out that $\psi_{\mu} (x) \ket{0}$ is an eigenstate of the boson annihilation operators $b_{q\mu}$ from which the boson field $\phi_{\mu} (x) = - \sum_{q>0} \sqrt{\frac{2\pi}{qL}}\left(e^{-q(\i x + \frac{a}{2})} b_{q\mu} + \text{h.c.} \right)$ is constructed. This means it must have a \emph{coherent state} representation in terms of the boson creation operators, which is exactly the bosonization relation.
+
+\subsection{Field theory/CFT approach}
+\subsection{Non-abelian bosonization}
+\section{QFT in 1+1 d}
+List of topics
+\begin{enumerate}
+    \item Luttinger model, luttinger liquid
+    \item spin-charge separation
+    \item sine-gordon RG analysis (BKT)
+    \item Tong 1+1 d
+\end{enumerate}
 \section{A vaguely stated connection...}
 After seeing a collection of different (but related) ideas pop-up at different places, I wanted to summarise them in a nice way and maybe see if I can atleast give a semblance of ``proof" for these statements. I am quite confident that the way in which it is written down below is completely wrong, but nevertheless I want to keep track of it and try finding counterexamples to disprove every incorrect implication.
 
