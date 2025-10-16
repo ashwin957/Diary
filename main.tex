@@ -237,8 +237,14 @@ List of topics
     \item sine-gordon RG analysis (BKT)
     \item Tong 1+1 d
 \end{enumerate}
+\subsection{Luttinger Model/Liquid}
+The idea behind this model is to ``replace" fermi liquid theory in 1 spatial dimension. One dimensional systems exhibit physics that is dramatically different compared to higher dimensions. One peculiarity is that there is no concept of ``single particle" states/excitations. Everything is collective in 1d. The way to handwave this is as follows: In higher dims, you can squeeze past neighbouring species in your way, in 1 dim you can't, there is simply no space! Interactions in 1 dimension therfore always lead to collective behaviour. \emph{All low energy states of a luttinger liquid can be described in terms of free quasiparticle excitations of the massless scalar field.}
+
+One can see the breakdown of fermi liquid theory in many ways. One is to see how many-body perturbation theoretic (diagrams!) treatment of these systems looks like and compare with usual diagrammatics in higher dim. See Dzyaloshinskii Larkin solution for more. \cite{sadovskii2006diagrammatics, giamarchi2003quantum}
+
+Main features: massless/gapless, relativistic scalar fields representing density and phase fluctuations. 
 \section{A vaguely stated connection...}
-After seeing a collection of different (but related) ideas pop-up at different places, I wanted to summarise them in a nice way and maybe see if I can atleast give a semblance of ``proof" for these statements. I am quite confident that the way in which it is written down below is completely wrong, but nevertheless I want to keep track of it and try finding counterexamples to disprove every incorrect implication.
+After seeing a collection of different (but related) ideas pop-up in multiple contexts, I wanted to summarise them in a nice way and maybe see if I can atleast give a semblance of ``proof" for these statements. I am quite confident that the way in which it is written down below is completely wrong, but nevertheless I want to keep track of it and try finding counterexamples to disprove every incorrect implication.
 
 \begin{conn}
     Systems with a disordered state $~\longleftrightarrow~$ Exponential Decay of correlation functions 
@@ -258,6 +264,10 @@ Now here is a complementary connection
     $~\longleftrightarrow~$ System described at some limit by a CFT.
 \end{conn}
 A related question: What sets the speed limit? I guess partially answered by Lieb-Robinson, but want some more intuition. There is also a further relation to chirality of excitations, but I am not able to make a concrete statement yet.
+
+Regarding chirality: Basically, it makes sense to talk about chiral modes on the edge when the bulk is gapped. If you had a gapless bulk then these edge modes are not ``independent" so it does not make sense to talk of the chirality of the modes. Though it is not true that chiral modes are always accompanied by a gapped bulk.\AM{Please find the counterexample!}
+
+A potential counter example to connection 1: Kitaev model (in the context of kitaev spin liquids; with hexagonal lattice in 2+1d) is gapless yet does not have power-law behaviour of spin correlators. They have this weird thing where they vanish sharply beyond a point on the lattice, instead of a smooth decay.\AM{Check this!}
 \bibliographystyle{apsrev4-1long}
 \bibliography{bibliography}
 
