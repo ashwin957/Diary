@@ -227,8 +227,35 @@ Important developments in the constructive side where through the works of Matti
 
 There are many ways to see why bosonization works. Here is one to start: It turns out that $\psi_{\mu} (x) \ket{0}$ is an eigenstate of the boson annihilation operators $b_{q\mu}$ from which the boson field $\phi_{\mu} (x) = - \sum_{q>0} \sqrt{\frac{2\pi}{qL}}\left(e^{-q(\i x + \frac{a}{2})} b_{q\mu} + \text{h.c.} \right)$ is constructed. This means it must have a \emph{coherent state} representation in terms of the boson creation operators, which is exactly the bosonization relation.
 
+\subsubsection{Subtlety regarding the boson commutator}
+Check \cite{von1998bosonization, 656563}.
+The bosonic mode operators can be defined in terms of the fermionic operators on the lattice (in k space) as follows (supressing free species index $\mu$, and remember only for positive momenta q)
+\begin{equation}
+    b_{q}^{\dagger} := \frac{\i}{\sqrt{n_q}} \sum_{k} c^{\dagger}_{k+q} c_{k} \quad,~ q \left(=\frac{2\pi}{L} n_q\right) >0,  n_q \in \mathbb{Z}^+.
+\end{equation}
+For any $\ket{\vec{N}}$ state, the state $b_q^{\dagger} \ket{\vec{N}}$ consists of linear combinations of particle hole excitations relative to $\ket{\vec{N}}$. So these mode operators can be viewed as momentum raising/lowering operators or alternatively, identified as the fourier components of the density operator.
+The commutator for these operators looks like
+\begin{equation}
+[b_{q\mu}, b_{q' \mu'}] = \delta_{\mu \mu'} \delta_{q q'}
+\end{equation}
+The above equation crucially relies on the fact that we normal order the operators with respect to the fermi sea. If we had normal ordered with respect to the vacuum, then the commutator would simply vanish instead!
+\subsubsection{Klein factors}
+They allow us to connect the different fermion number sectors. These operators raise/lower the total fermion number by one, this cannot be achieved by any linear combination of bosonic operators! They also have the added benefit of enforcing the anti-commutation relation between different species of fermions!
+They are defined with the following properties
+\begin{enumerate}
+    \item $F_{\mu}, F^{\dagger} _{\mu}$ commute with all the bosonic operators.
+    \item The state $F^{\dagger}_\mu \ket{\vec{N}}$ (or $F_\mu \ket{\vec{N}}$) has the same set of bosonic excitations as the state $\ket{\vec{N}}$ but created on a ground state with one more (or less) $\mu$-electron.
+\end{enumerate}
+These two defining properties completely fix the operators, and we can give an explicit construction roughly by inverting the bosonization formula. An additional consequence of the above properties is that these operators are unitary and so can be written as $e^{\i\theta}, \theta = \theta^{\dagger}$. Ofcourse, the fact that different fermionic species anti-commute now comes baked in, and can be seen through the anti-commutation relations of the Klein factors.
+\subsubsection{The Bosonic field, its dual and the chiral versions}
+\subsubsection{Comments on the bosonization formula}
+\subsubsection{Some Green's functions}
 \subsection{Field theory/CFT approach}
+\subsubsection{Subtlety regarding compactness of the bosonic field}
+\subsubsection{Point splitting, normal ordering and correct order of limits to be taken}
+\subsubsection{Vertex Operators}
 \subsection{Non-abelian bosonization}
+\subsubsection{Current algebras}
 \section{QFT in 1+1 d}
 List of topics
 \begin{enumerate}
@@ -242,7 +269,10 @@ The idea behind this model is to ``replace" fermi liquid theory in 1 spatial dim
 
 One can see the breakdown of fermi liquid theory in many ways. One is to see how many-body perturbation theoretic (diagrams!) treatment of these systems looks like and compare with usual diagrammatics in higher dim. See Dzyaloshinskii Larkin solution for more. \cite{sadovskii2006diagrammatics, giamarchi2003quantum}
 
-Main features: massless/gapless, relativistic scalar fields representing density and phase fluctuations. 
+Main features: massless/gapless, relativistic scalar fields representing density and phase fluctuations.
+\subsubsection{Scattering processes}
+\subsubsection{Sine-Gordon, BKT, Massive Thirring}
+\subsubsection{Spin Charge separation}
 \section{A vaguely stated connection...}
 After seeing a collection of different (but related) ideas pop-up in multiple contexts, I wanted to summarise them in a nice way and maybe see if I can atleast give a semblance of ``proof" for these statements. I am quite confident that the way in which it is written down below is completely wrong, but nevertheless I want to keep track of it and try finding counterexamples to disprove every incorrect implication.
 
